@@ -1,0 +1,77 @@
+include "map_builder.lua"
+include "trajectory_builder.lua"
+
+options = {
+  map_builder = MAP_BUILDER,
+  trajectory_builder = TRAJECTORY_BUILDER,
+
+  map_frame = "map",
+  tracking_frame = "P1_robot0/imu_link",      -- IMU frame (verify per NOTE 1)
+  published_frame = "P1_robot0/base_link",
+  odom_frame = "P1_robot0/odom",
+
+  provide_odom_frame = true,                  -- Cartographer publishes map -> odom
+  publish_frame_projected_to_2d = true,
+
+  use_odometry = true,                         -- wheel_odom as prior
+  use_nav_sat = false,
+  use_landmarks = false,
+
+  num_laser_scans = 1,
+  num_multi_echo_laser_scans = 0,
+  num_subdivisions_per_laser_scan = 1,        -- de-skew scans during rotation
+  num_point_clouds = 0,
+
+  lookup_transform_timeout_sec = 0.3,
+  submap_publish_period_sec = 0.3,
+  pose_publish_period_sec = 0.02,              -- 50 Hz is plenty; saves CPU
+  trajectory_publish_period_sec = 0.03,
+
+  rangefinder_sampling_ratio = 1.0,
+  odometry_sampling_ratio = 1.0,
+  fixed_frame_pose_sampling_ratio = 1.0,
+  imu_sampling_ratio = 1.0,
+  landmarks_sampling_ratio = 1.0,
+}
+
+MAP_BUILDER.use_trajectory_builder_2d = true
+
+TRAJECTORY_BUILDER_2D.use_imu_data = true        -- IMU enabled (you have /P1_robot0/imu)
+TRAJECTORY_BUILDER_2D.min_range = 0.15
+TRAJECTORY_BUILDER_2D.max_range = 15.0
+TRAJECTORY_BUILDER_2D.missing_data_ray_length = 15.0
+
+-- Online scan matching: with an IMU prior this is less critical, but it still helps
+TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.15
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(20.)
+
+-- Insert scans frequently for tight local accuracy
+TRAJECTORY_BUILDER_2D.motion_filter.max_time_seconds = 3.
+TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters = 0.1
+TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.5)
+
+TRAJECTORY_BUILDER_2D.ceres_scan_matcher.occupied_space_weight = 1.0
+TRAJECTORY_BUILDER_2D.ceres_scan_matcher.translation_weight = 10.0
+TRAJECTORY_BUILDER_2D.ceres_scan_matcher.rotation_weight = 40.0
+
+-- Submaps
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 120
+TRAJECTORY_BUILDER_2D.submaps.grid_options_2d.grid_type = "PROBABILITY_GRID"
+TRAJECTORY_BUILDER_2D.submaps.grid_options_2d.resolution = 0.05
+
+-- Pose graph / loop closure
+POSE_GRAPH.optimize_every_n_nodes = 30
+POSE_GRAPH.constraint_builder.min_score = 0.65
+POSE_GRAPH.constraint_builder.global_localization_min_score = 0.75
+POSE_GRAPH.constraint_builder.loop_closure_translation_weight = 1.1e1
+POSE_GRAPH.constraint_builder.loop_closure_rotation_weight = 1.0e1
+
+-- Wheel odometry trust in the global optimizer.
+-- Rotation weight lowered now that the IMU drives yaw; keep translation trust high.
+POSE_GRAPH.optimization_problem.odometry_translation_weight = 1e5
+POSE_GRAPH.optimization_problem.odometry_rotation_weight = 1e3
+
+POSE_GRAPH.optimization_problem.huber_scale = 1e1
+
+return options

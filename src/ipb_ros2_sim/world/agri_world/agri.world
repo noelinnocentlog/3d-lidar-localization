@@ -1,0 +1,4810 @@
+<?xml version="1.0" ?>
+<sdf version='1.10'>
+  <world name='agri_world'>
+    <physics name='10ms' type='ignored'>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+
+      <publish_pose>true</publish_pose>
+      <publish_model_pose>true</publish_model_pose>
+      <publish_link_pose>true</publish_link_pose>
+    </plugin>
+    <plugin filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <scene>
+      <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+      <background>0.660000026 0.769999981 0.839999974 1</background>
+      <grid>false</grid>
+      <origin_visual>false</origin_visual>
+      <shadows>true</shadows>
+    </scene>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>6.0000000000000002e-06 2.3e-05 -4.1999999999999998e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='false' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>1453 379000000</sim_time>
+      <real_time>112 236889786</real_time>
+      <wall_time>1555192438 111534923</wall_time>
+      <iterations>112023</iterations>
+
+      <model name='ground_plane'>
+        <pose>0 0 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box'>
+        <pose>-6.12765 4.83622 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-6.12765 4.83622 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_0'>
+        <pose>1.8676699999999999 4.8310399999999998 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>1.8676699999999999 4.8310399999999998 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_0_clone'>
+        <pose>9.8575700000000008 -5.1421599999999996 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>9.8575700000000008 -5.1421599999999996 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_3clone'>
+        <pose>9.90 4.85 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>9.90 4.85 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_0_clone_clone'>
+        <pose>17.766100000000002 -5.1208400000000003 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>17.766100000000002 -5.1208400000000003 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_0_clone_clone_0'>
+        <pose>17.8432 4.7954600000000003 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>17.8432 4.7954600000000003 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_0_clone_clone_1'>
+        <pose>-14.127599999999999 -5.1520900000000003 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-14.127599999999999 -5.1520900000000003 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_0_clone_clone_2'>
+        <pose>-14.1258 4.8475599999999996 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-14.1258 4.8475599999999996 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_1'>
+        <pose>-6.1279199999999996 -5.1399800000000004 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-6.1279199999999996 -5.1399800000000004 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_2'>
+        <pose>1.85975 -5.1519199999999998 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>1.85975 -5.1519199999999998 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='mud_box_3'>
+        <pose>9.8498599999999996 4.8217299999999996 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>9.8498599999999996 4.8217299999999996 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      
+      <model name='pine_tree'>
+        <pose>19.923400000000001 7.9591200000000004 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>19.923400000000001 7.9591200000000004 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_0'>
+        <pose>16.683399999999999 7.9078499999999998 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>16.683399999999999 7.9078499999999998 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_1'>
+        <pose>13.5259 7.9540300000000004 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>13.5259 7.9540300000000004 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_2'>
+        <pose>-15.970599999999999 -7.8967000000000001 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-15.970599999999999 -7.8967000000000001 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_3'>
+        <pose>-16.229700000000001 -5.2843400000000003 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-16.229700000000001 -5.2843400000000003 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_4'>
+        <pose>-13.2285 -8.3326899999999995 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-13.2285 -8.3326899999999995 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_5'>
+        <pose>0.048229000000000001 -8.4788999999999994 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.048229000000000001 -8.4788999999999994 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='pine_tree_6'>
+        <pose>-3.38896 8.3195800000000002 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-3.38896 8.3195800000000002 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='false'>
+      <camera name='user_camera'>
+        <pose>-23.02 -28.449999999999999 18.059999999999999 -2.9632151237069086e-17 0.35779600000000006 0.90275100000000008</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.0999999999999996 4.8499999999999996 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>1.8999999999999999 4.8499999999999996 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.0999999999999996 -5.1500000000000004 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_2'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>1.8999999999999999 -5.1399999999999997 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+        <model name='mud_box_3clone'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.90 4.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.9000000000000004 -5.1500000000000004 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>17.899999999999999 -5.1500000000000004 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_0'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>17.899999999999999 4.8499999999999996 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-14.100000381469727 -5.1500000953674316 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+   
+    <model name='mud_box_4'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-14.1 14.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_5'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.0999999999999996 14.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_6'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.9000000000000004 14.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_7'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>17.899999999999999 14.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_8'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>1.8999999999999999 14.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-14.1 -15.15 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_2'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.0999999999999996 -15.15 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_3'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>1.8999999999999999 -15.15 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_4'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.9000000000000004 -15.15 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_5'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>17.899999999999999 -15.15 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_6'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-14.1 -25.149999999999999 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_7'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6.0999999999999996 -25.149999999999999 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_8'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>1.9005203247070312 -25.149999618530273 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_9'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>17.899999618530273 -25.149999618530273 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_10'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>9.9000000000000004 -25.149999999999999 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+
+    <include>
+      <uri>model://Big Banana for Scale</uri>
+      <name>Big Banana for Scale</name>
+      <pose>-5.1900000000000004 -5.0599999999999996 50 0 0 0</pose>
+    </include>
+
+    <model name='mud_box_4_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-14.1 4.8499999999999996 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_9_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>25.899999999999999 -25.149999999999999 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_9_2'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>25.899999999999999 -15.15 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_9_3'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>25.899999999999999 -5.1500000000000004 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_9_4'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>25.899999999999999 4.8499999999999996 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='mud_box_0_clone_clone_1_9_5'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>8 10 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_1'>
+          <pose>-2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_2'>
+          <pose>2 2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_3'>
+          <pose>2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <visual name='visual_4'>
+          <pose>-2 -2.5 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>4 5 0.20000000000000001</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.899999976 0.850000024 0.800000012 1</ambient>
+            <diffuse>0.899999976 0.850000024 0.800000012 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://mud_box/materials/textures/mud_soft_leaves.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <self_collide>false</self_collide>
+        <kinematic>false</kinematic>
+        <gravity>true</gravity>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>25.899999999999999 14.85 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+
+
+    <model name='apple_tree_1_3t5'>
+      <pose>-8.238987922668457 -15.981100082397461 0 0 0 1.5</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_1_3t5</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='apple_tree_1_6t8'>
+      <pose>2.9996705055236816 -15.768100738525391 0 0 0 -0.5</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_1_6t8</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='apple_tree_1_9t11'>
+      <pose>24.733793258666992 -15.762899398803711 0 0 0 -1.7</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_1_9t11</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model> 
+
+    <model name='apple_tree_1_12t14'>
+      <pose>13.254096031188965 -25.648099899291992 0 0 0 -2</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_1_12t14</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model> 
+
+    <model name='apple_tree_2_15t17'>
+      <pose>-8.3652572631835938 -6.4522299766540527 0 0 0 1.9</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_2_15t17</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model> 
+
+
+    <model name='apple_tree_2_18t20'>
+      <pose>14.843558311462402 -6.3000001907348633 0 0 0 0.3</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_2_18t20</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='apple_tree_2_21t23'>
+      <pose>14.077672004699707 -15.920499801635742 0 0 0 0</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_2_21t23</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+
+
+    <model name='apple_tree_2_27t29'>
+      <pose>-8.4005670547485352 -26.168800735473633 0 0 0 -0.4</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_2_27t29</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='apple_tree_3_30t32'>
+      <pose>3.6720044612884521 -6.1370000839233398 0 0 0 1.3</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_3_30t32</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>  
+
+    <model name='apple_tree_3_33t35'>
+      <pose>24.808977127075195 -6.0565700531005859 0 0 0 -2</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_3_33t35</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+
+
+    <model name='apple_tree_3_39t41'>
+      <pose>2.7038304805755615 -25.681699752807617 0 0 0 -0.1</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_3_39t41</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='apple_tree_3_42t44'>
+      <pose>24.117979049682617 -25.923300552368164 0 0 0 -0.7</pose>
+      <include>
+        <uri>model://apple_tree/apple_tree_3_42t44</uri>
+      </include>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>  
+
+
+    <include>
+      <uri>model://plot_plants</uri>
+      <name>courgette_1</name>
+      <pose>13 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plot_plants</uri>
+      <name>courgette_2</name>
+      <pose>27.85 0 0 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_1</name>
+      <pose>22.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_2</name>
+      <pose>19.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_3</name>
+      <pose>16.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_4</name>
+      <pose>13.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_5</name>
+      <pose>10.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_6</name>
+      <pose>7.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_7</name>
+      <pose>4.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_8</name>
+      <pose>1.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_9</name>
+      <pose>-1.89 18.83 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_10</name>
+      <pose>-4.89 18.83 0 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_11</name>
+      <pose>23.11 16.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_12</name>
+      <pose>23.11 13.83 0 0 0 1.5708</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_13</name>
+      <pose>23.11 10.83 0 0 0 1.5708</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_14</name>
+      <pose>23.11 7.83 0 0 0 1.5708</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_15</name>
+      <pose>23.11 4.83 0 0 0 1.5708</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_16</name>
+      <pose>23.11 1.83 0 0 0 1.5708</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_17</name>
+      <pose>23.11 -1.17 0 0 0 1.5708</pose>
+    </include>
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_18</name>
+      <pose>21.11 -2.17 0 0 0 0</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_19</name>
+      <pose>18.11 -2.17 0 0 0 0</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_20</name>
+      <pose>15.11 -2.17 0 0 0 0</pose>
+    </include> 
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_21</name>
+      <pose>12.11 -2.17 0 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_22</name>
+      <pose>-5.89 16.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_23</name>
+      <pose>-5.89 13.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_24</name>
+      <pose>-5.89 10.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_25</name>
+      <pose>-5.89 7.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_26</name>
+      <pose>-5.89 4.83 0 0 0 1.5708</pose>
+    </include>.
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_27</name>
+      <pose>-5.89 1.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_28</name>
+      <pose>-5.89 -1.17 0 0 0 1.5708</pose>
+    </include>
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_29</name>
+      <pose>-3.89 -2.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_30</name>
+      <pose>-0.89 -2.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_31</name>
+      <pose>2.11 -2.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_32</name>
+      <pose>5.11 -2.17 0 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_33</name>
+      <pose>8.61 16.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_34</name>
+      <pose>8.61 13.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_35</name>
+      <pose>8.61 10.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_36</name>
+      <pose>8.61 7.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_37</name>
+      <pose>8.61 4.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_38</name>
+      <pose>8.61 1.83 0 0 0 1.5708</pose>
+    </include>
+
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_40</name>
+      <pose>-7.89 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_41</name>
+      <pose>-10.89 18.83 0 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_42</name>
+      <pose>-11.89 16.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_43</name>
+      <pose>-11.89 13.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_44</name>
+      <pose>-11.89 10.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_45</name>
+      <pose>-11.89 7.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_46</name>
+      <pose>-11.89 4.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_47</name>
+      <pose>-11.89 1.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_48</name>
+      <pose>-11.89 -1.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_49</name>
+      <pose>-11.89 -4.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_50</name>
+      <pose>-11.89 -7.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_51</name>
+      <pose>-11.89 -10.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_52</name>
+      <pose>-11.89 -13.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_53</name>
+      <pose>-11.89 -16.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_54</name>
+      <pose>-11.89 -19.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_55</name>
+      <pose>-11.89 -22.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_56</name>
+      <pose>-11.89 -25.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_57</name>
+      <pose>-11.89 -28.17 0 0 0 1.5708</pose>
+    </include>
+
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_58</name>
+      <pose>-9.89 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_59</name>
+      <pose>-6.89 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_60</name>
+      <pose>-3.89 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_61</name>
+      <pose>-0.89 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_62</name>
+      <pose>2.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_63</name>
+      <pose>5.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_64</name>
+      <pose>8.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_65</name>
+      <pose>11.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_66</name>
+      <pose>14.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_67</name>
+      <pose>17.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_68</name>
+      <pose>20.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_69</name>
+      <pose>23.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_70</name>
+      <pose>26.11 -29.17 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_71</name>
+      <pose>29.11 -29.17 0 0 0 0</pose>
+    </include>
+
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_72</name>
+      <pose>30.11 -27.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_73</name>
+      <pose>30.11 -24.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_74</name>
+      <pose>30.11 -21.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_75</name>
+      <pose>30.11 -18.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_76</name>
+      <pose>30.11 -15.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_77</name>
+      <pose>30.11 -12.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_78</name>
+      <pose>30.11 -9.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_79</name>
+      <pose>30.11 -6.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_80</name>
+      <pose>30.11 -3.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_81</name>
+      <pose>30.11 -0.17 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_82</name>
+      <pose>30.11 2.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_83</name>
+      <pose>30.11 5.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_84</name>
+      <pose>30.11 8.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_85</name>
+      <pose>30.11 11.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_86</name>
+      <pose>30.11 14.83 0 0 0 1.5708</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_87</name>
+      <pose>30.11 17.83 0 0 0 1.5708</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_88</name>
+      <pose>25.11 18.83 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://brick_box_3x1x3</uri>
+      <name>wall_89</name>
+      <pose>28.11 18.83 0 0 0 0</pose>
+    </include>
+
+    
+
+
+
+
+
+
+
+
+
+
+    <!-- <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.5 -1</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light> -->
+
+      <!-- BEGIN_CEILING_ARUCO_GRID -->
+    <model name="ceiling_aruco_grid">
+      <static>true</static>
+      <pose>8.57 -5.2 0 0 0 0</pose>
+      <link name="link">
+        <visual name="ceiling_aruco_markers">
+          <pose>0 0 4 3.1415926535897931 0.0 0.00</pose>
+          <geometry>
+            <box>
+              <size>40.85 48.35 0.002000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://aruco_marker_grid/textures/aruco_markers.png</albedo_map>
+                <emissive_map>file://aruco_marker_grid/textures/aruco_markers.png</emissive_map>
+              </metal>
+            </pbr>
+            <transparency>0.0</transparency>
+          </material>
+        </visual>
+        </link>
+    </model>
+  </world>
+
+
+</sdf>

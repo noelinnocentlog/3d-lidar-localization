@@ -1,0 +1,8004 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.6">
+  <world name="office_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+    </plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <scene>
+      <ambient>0.8 0.8 0.8 1.0</ambient>
+      <background>0.66 0.77 0.84 1.0</background>
+      <grid>0</grid>
+      <origin_visual>0</origin_visual>
+    </scene>
+    <!-- Light just so some objects are shaded -->
+    <light name="directional_light" type="directional">
+      <pose>0.0 0.0 -100.0 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+    </light>
+    <!-- Ceiling -->
+    <model name="ceiling">
+      <pose>
+        7.9699999999999998
+        11.25
+        3.0
+        0
+        3.141592653589793
+        0
+      </pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>29.5 22.5</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/ceiling.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- Floor -->
+    <model name="floor">
+      <pose>
+        9.1
+        11.25
+        -0.001
+        0
+        0
+        0
+      </pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>24.2 22.5</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/hallway.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>29.5 22.5</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+    </model>
+    <!-- Extra walls -->
+    <model name="walls">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual_5">
+          <pose>
+            -2.25
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_5">
+          <pose>
+            -2.25
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_6">
+          <pose>
+            -0.75
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_6">
+          <pose>
+            -0.75
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_7">
+          <pose>
+            0.75
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_7">
+          <pose>
+            0.75
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_8">
+          <pose>
+            2.25
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_8">
+          <pose>
+            2.25
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_9">
+          <pose>
+            3.75
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_9">
+          <pose>
+            3.75
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_10">
+          <pose>
+            5.25
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_10">
+          <pose>
+            5.25
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_11">
+          <pose>
+            6.749
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_11">
+          <pose>
+            6.749
+            0.0
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_14">
+          <pose>
+            5.25
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_14">
+          <pose>
+            5.25
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_15">
+          <pose>
+            6.75
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_15">
+          <pose>
+            6.75
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_16">
+          <pose>
+            7.4
+            0.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_16">
+          <pose>
+            7.4
+            0.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_17">
+          <pose>
+            7.4
+            2.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_17">
+          <pose>
+            7.4
+            2.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_18">
+          <pose>
+            7.4
+            3.05
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_18">
+          <pose>
+            7.4
+            3.05
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_19">
+          <pose>
+            7.45
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_19">
+          <pose>
+            7.45
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_20">
+          <pose>
+            7.55
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_20">
+          <pose>
+            7.55
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_21">
+          <pose>
+            9.75
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_21">
+          <pose>
+            9.75
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_22">
+          <pose>
+            10.55
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_22">
+          <pose>
+            10.55
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_23">
+          <pose>
+            10.65
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_23">
+          <pose>
+            10.65
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_24">
+          <pose>
+            12.85
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_24">
+          <pose>
+            12.85
+            3.1
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_25">
+          <pose>
+            13.6
+            3.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_25">
+          <pose>
+            13.6
+            3.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_26">
+          <pose>
+            13.6
+            6.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_26">
+          <pose>
+            13.6
+            6.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_27">
+          <pose>
+            13.6
+            8.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_27">
+          <pose>
+            13.6
+            8.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_28">
+          <pose>
+            13.6
+            9.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_28">
+          <pose>
+            13.6
+            9.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_29">
+          <pose>
+            13.6
+            10.55
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_29">
+          <pose>
+            13.6
+            10.55
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_30">
+          <pose>
+            14.35
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_30">
+          <pose>
+            14.35
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_31">
+          <pose>
+            15.85
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_31">
+          <pose>
+            15.85
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_32">
+          <pose>
+            17.35
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_32">
+          <pose>
+            17.35
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_33">
+          <pose>
+            18.85
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_33">
+          <pose>
+            18.85
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_34">
+          <pose>
+            20.35
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_34">
+          <pose>
+            20.35
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_35">
+          <pose>
+            21.150000000000002
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_35">
+          <pose>
+            21.150000000000002
+            10.6
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_36">
+          <pose>
+            21.2
+            11.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_36">
+          <pose>
+            21.2
+            11.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_37">
+          <pose>
+            21.2
+            12.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_37">
+          <pose>
+            21.2
+            12.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_38">
+          <pose>
+            21.2
+            14.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_38">
+          <pose>
+            21.2
+            14.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_39">
+          <pose>
+            21.2
+            15.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_39">
+          <pose>
+            21.2
+            15.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_40">
+          <pose>
+            20.95
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_40">
+          <pose>
+            20.95
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_41">
+          <pose>
+            21.05
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_41">
+          <pose>
+            21.05
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_42">
+          <pose>
+            21.150000000000002
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_42">
+          <pose>
+            21.150000000000002
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_43">
+          <pose>
+            20.25
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_43">
+          <pose>
+            20.25
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_44">
+          <pose>
+            17.25
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_44">
+          <pose>
+            17.25
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_45">
+          <pose>
+            15.75
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_45">
+          <pose>
+            15.75
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_46">
+          <pose>
+            14.25
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_46">
+          <pose>
+            14.25
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_47">
+          <pose>
+            12.75
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_47">
+          <pose>
+            12.75
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_48">
+          <pose>
+            11.950000000000001
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_48">
+          <pose>
+            11.950000000000001
+            16.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_49">
+          <pose>
+            11.9
+            17.15
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_49">
+          <pose>
+            11.9
+            17.15
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_50">
+          <pose>
+            11.9
+            18.65
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_50">
+          <pose>
+            11.9
+            18.65
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_51">
+          <pose>
+            11.15
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_51">
+          <pose>
+            11.15
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_52">
+          <pose>
+            8.15
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_52">
+          <pose>
+            8.15
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_53">
+          <pose>
+            7.35
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_53">
+          <pose>
+            7.35
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_54">
+          <pose>
+            6.55
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_54">
+          <pose>
+            6.55
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_55">
+          <pose>
+            3.55
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_55">
+          <pose>
+            3.55
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_56">
+          <pose>
+            2.75
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_56">
+          <pose>
+            2.75
+            19.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_57">
+          <pose>
+            2.7
+            19.45
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_57">
+          <pose>
+            2.7
+            19.45
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_58">
+          <pose>
+            2.7
+            20.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_58">
+          <pose>
+            2.7
+            20.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_59">
+          <pose>
+            2.7
+            21.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_59">
+          <pose>
+            2.7
+            21.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_60">
+          <pose>
+            1.95
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_60">
+          <pose>
+            1.95
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_61">
+          <pose>
+            0.75
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_61">
+          <pose>
+            0.75
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_62">
+          <pose>
+            -0.75
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_62">
+          <pose>
+            -0.75
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_63">
+          <pose>
+            -2.25
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_63">
+          <pose>
+            -2.25
+            22.5
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_118">
+          <pose>
+            -0.05
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_118">
+          <pose>
+            -0.05
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_119">
+          <pose>
+            0.75
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_119">
+          <pose>
+            0.75
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_120">
+          <pose>
+            2.25
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_120">
+          <pose>
+            2.25
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_121">
+          <pose>
+            3.75
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_121">
+          <pose>
+            3.75
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_122">
+          <pose>
+            4.55
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_122">
+          <pose>
+            4.55
+            4.4
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_123">
+          <pose>
+            4.6
+            4.45
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_123">
+          <pose>
+            4.6
+            4.45
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_124">
+          <pose>
+            4.6
+            5.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_124">
+          <pose>
+            4.6
+            5.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_125">
+          <pose>
+            4.6
+            6.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_125">
+          <pose>
+            4.6
+            6.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_126">
+          <pose>
+            4.6
+            9.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_126">
+          <pose>
+            4.6
+            9.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_127">
+          <pose>
+            4.6
+            10.55
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_127">
+          <pose>
+            4.6
+            10.55
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_128">
+          <pose>
+            4.6
+            11.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_128">
+          <pose>
+            4.6
+            11.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_129">
+          <pose>
+            4.6
+            12.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_129">
+          <pose>
+            4.6
+            12.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_130">
+          <pose>
+            4.6
+            15.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_130">
+          <pose>
+            4.6
+            15.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_131">
+          <pose>
+            4.6
+            16.650000000000002
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_131">
+          <pose>
+            4.6
+            16.650000000000002
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_136">
+          <pose>
+            -0.05
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_136">
+          <pose>
+            -0.05
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_137">
+          <pose>
+            0.75
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_137">
+          <pose>
+            0.75
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_138">
+          <pose>
+            2.25
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_138">
+          <pose>
+            2.25
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_139">
+          <pose>
+            3.75
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_139">
+          <pose>
+            3.75
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_140">
+          <pose>
+            4.55
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_140">
+          <pose>
+            4.55
+            16.7
+            1.5
+            0.0
+            0.0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_141">
+          <pose>
+            -0.1
+            4.45
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_141">
+          <pose>
+            -0.1
+            4.45
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_142">
+          <pose>
+            -0.1
+            5.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_142">
+          <pose>
+            -0.1
+            5.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_142_copy">
+          <pose>
+            -0.1
+            6.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_142_copy">
+          <pose>
+            -0.1
+            6.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_143">
+          <pose>
+            -0.1
+            8.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_143">
+          <pose>
+            -0.1
+            8.25
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_144">
+          <pose>
+            -0.1
+            9.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_144">
+          <pose>
+            -0.1
+            9.75
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_145">
+          <pose>
+            -0.1
+            10.55
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_145">
+          <pose>
+            -0.1
+            10.55
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_146">
+          <pose>
+            -0.1
+            11.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_146">
+          <pose>
+            -0.1
+            11.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_146_copy">
+          <pose>
+            -0.1
+            12.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_146_copy">
+          <pose>
+            -0.1
+            12.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_147">
+          <pose>
+            -0.1
+            14.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_147">
+          <pose>
+            -0.1
+            14.35
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_148">
+          <pose>
+            -0.1
+            15.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_148">
+          <pose>
+            -0.1
+            15.85
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual_149">
+          <pose>
+            -0.1
+            16.650000000000002
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="collision_149">
+          <pose>
+            -0.1
+            16.650000000000002
+            1.5
+            0.0
+            0.0
+            1.5707963267948966
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                0.01
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <!-- Rooms -->
+    <model name="PublicBathroomA">
+      <static>true</static>
+      <pose>
+        9.0
+        3.0
+        0
+        0
+        0
+        0
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            0.63
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -1.3800000000000001
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.24
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            1.55
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -1.55
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            0.0
+            -3.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                3.0
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/bathroom.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door">
+        <pose>-0.3 -0.05 0 0 0 6.237392623330445</pose>
+        <collision name="collision">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <!-- Furniture if door is open -->
+      <include>
+        <pose>
+          -0.6
+          -2.1
+          0
+          0
+          0
+          3.141592653589793
+        </pose>
+        <uri>model://toilet</uri>
+      </include>
+      <include>
+        <pose>
+          0.9
+          -2.35
+          0
+          0
+          0
+          -0.7853981633974483
+        </pose>
+        <uri>model://wastebasket</uri>
+      </include>
+    </model>
+    <model name="PublicBathroomB">
+      <static>true</static>
+      <pose>
+        12.1
+        3.0
+        0
+        0
+        0
+        0
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            0.63
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -1.3800000000000001
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.24
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            1.55
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -1.55
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            0.0
+            -3.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                3.0
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/bathroom.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door">
+        <pose>-0.3 -0.05 0 0 0 5.851612471019252</pose>
+        <collision name="collision">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <!-- Furniture if door is open -->
+      <include>
+        <pose>
+          0.0
+          -2.35
+          0
+          0
+          0
+          -0.7853981633974483
+        </pose>
+        <uri>model://wastebasket</uri>
+      </include>
+    </model>
+    <model name="PublicCafe">
+      <static>true</static>
+      <pose>
+        13.7
+        6.0
+        0
+        0
+        0
+        1.5707963267948966
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            2.13
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                4.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -3.63
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                4.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            4.55
+            -3.75
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                7.5
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -6.05
+            -3.75
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                7.5
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            -0.75
+            -7.55
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                10.5
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/refreshment_area.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_-3_-4">
+          <pose>
+            -4.5
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-3_-3">
+          <pose>
+            -4.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-3_-2">
+          <pose>
+            -4.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-3_-1">
+          <pose>
+            -4.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-3_0">
+          <pose>
+            -4.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-2_-4">
+          <pose>
+            -3.0
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-2_-3">
+          <pose>
+            -3.0
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-2_-2">
+          <pose>
+            -3.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-2_-1">
+          <pose>
+            -3.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-2_0">
+          <pose>
+            -3.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-4">
+          <pose>
+            -1.5
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-3">
+          <pose>
+            -1.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-2">
+          <pose>
+            -1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-1">
+          <pose>
+            -1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_0">
+          <pose>
+            -1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-4">
+          <pose>
+            0.0
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-3">
+          <pose>
+            0.0
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-2">
+          <pose>
+            0.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-4">
+          <pose>
+            1.5
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-3">
+          <pose>
+            1.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-2">
+          <pose>
+            1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-4">
+          <pose>
+            3.0
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-3">
+          <pose>
+            3.0
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-2">
+          <pose>
+            3.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-1">
+          <pose>
+            3.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_0">
+          <pose>
+            3.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-4">
+          <pose>
+            4.5
+            -6.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-3">
+          <pose>
+            4.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-2">
+          <pose>
+            4.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-1">
+          <pose>
+            4.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_0">
+          <pose>
+            4.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/tile.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door">
+        <pose>-0.3 -0.05 0 0 0 6.237392623330445</pose>
+        <collision name="collision">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <!-- Furniture if door is open -->
+      <link name="counter_0">
+        <pose>
+          -5.7
+          -5.5
+          0
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <collision name="collision">
+          <pose>0.0 -0.025 0.46 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.67 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://cafe_counter/meshes/counter_no_sink.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="counter_1">
+        <pose>
+          -5.7
+          -4.300000000000001
+          0
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <collision name="collision">
+          <pose>0.0 -0.025 0.46 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.67 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://cafe_counter/meshes/counter_no_sink.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="counter_2">
+        <pose>
+          -5.7
+          -3.1000000000000005
+          0
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <collision name="collision">
+          <pose>0.0 -0.025 0.46 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.67 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://cafe_counter/meshes/counter_sink.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <include>
+        <name>microwave_1</name>
+        <pose>
+          -5.54
+          -5.18
+          0.92
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <uri>model://microwave</uri>
+      </include>
+      <include>
+        <name>coffee_maker_1</name>
+        <pose>
+          -5.54
+          -4.62
+          0.92
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <uri>model://coffee_maker</uri>
+      </include>
+      <include>
+        <pose>
+          -5.65
+          -2.18
+          0
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <uri>model://dishwasher</uri>
+      </include>
+      <include>
+        <name>refrigerator_1</name>
+        <pose>
+          -5.54
+          -1.4
+          0
+          0
+          0
+          1.5707963267948966
+        </pose>
+        <uri>model://refrigerator</uri>
+      </include>
+      <include>
+        <pose>
+          3.51
+          -1.0
+          0
+          0
+          0
+          -0.7853981633974483
+        </pose>
+        <uri>model://tv_stand</uri>
+      </include>
+      <include>
+        <name>table_1</name>
+        <pose>
+          -2.6550369993422556
+          -5.796211880015091
+          0
+          0
+          0
+          0.7853981633974483
+        </pose>
+        <uri>model://CoffeeTable</uri>
+      </include>
+      <include>
+        <name>table_2</name>
+        <pose>
+          -2.7979315054648968
+          -3.5321526723027334
+          0
+          0
+          0
+          0.7853981633974483
+        </pose>
+        <uri>model://CoffeeTable</uri>
+      </include>
+      <include>
+        <name>table_3</name>
+        <pose>
+          0.281349326342375
+          -6.159775408031357
+          0
+          0
+          0
+          0.7853981633974483
+        </pose>
+        <uri>model://CoffeeTable</uri>
+      </include>
+      <include>
+        <name>table_4</name>
+        <pose>
+          0.43747119723864314
+          -3.5937494859843846
+          0
+          0
+          0
+          0.7853981633974483
+        </pose>
+        <uri>model://CoffeeTable</uri>
+      </include>
+      <include>
+        <name>table_5</name>
+        <pose>
+          2.842449069976006
+          -5.954119154366306
+          0
+          0
+          0
+          0.7853981633974483
+        </pose>
+        <uri>model://CoffeeTable</uri>
+      </include>
+      <include>
+        <name>table_6</name>
+        <pose>
+          3.0073090820935957
+          -3.628025086875431
+          0
+          0
+          0
+          0.7853981633974483
+        </pose>
+        <uri>model://CoffeeTable</uri>
+      </include>
+    </model>
+    <model name="PublicMeetingRoomA">
+      <static>true</static>
+      <pose>
+        18.0
+        16.5
+        0
+        0
+        0
+        3.141592653589793
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            2.88
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                6.24
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -2.13
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            6.05
+            -3.0
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                6.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -3.05
+            -3.0
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                6.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            1.5
+            -6.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                9.0
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/meeting_room_large.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_-1_-3">
+          <pose>
+            -1.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-2">
+          <pose>
+            -1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-1">
+          <pose>
+            -1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_0">
+          <pose>
+            -1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-3">
+          <pose>
+            0.0
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-2">
+          <pose>
+            0.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-3">
+          <pose>
+            1.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-2">
+          <pose>
+            1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-3">
+          <pose>
+            3.0
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-2">
+          <pose>
+            3.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-1">
+          <pose>
+            3.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_0">
+          <pose>
+            3.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-3">
+          <pose>
+            4.5
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-2">
+          <pose>
+            4.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_-1">
+          <pose>
+            4.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_3_0">
+          <pose>
+            4.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_4_-3">
+          <pose>
+            6.0
+            -4.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_4_-2">
+          <pose>
+            6.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_4_-1">
+          <pose>
+            6.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_4_0">
+          <pose>
+            6.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door">
+        <pose>-0.3 -0.05 0 0 0 6.089893858484752</pose>
+        <collision name="collision">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <!-- Furniture if door is open -->
+    </model>
+    <model name="PublicMeetingRoomB">
+      <static>true</static>
+      <pose>
+        4.5
+        7.5
+        0
+        0
+        0
+        -1.5707963267948966
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            1.3800000000000001
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                3.24
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -2.13
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            3.05
+            -2.25
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                4.5
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -3.05
+            -2.25
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                4.5
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            0.0
+            -4.55
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                6.0
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/meeting_room_small.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_-1_-2">
+          <pose>
+            -1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-1">
+          <pose>
+            -1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_0">
+          <pose>
+            -1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-2">
+          <pose>
+            0.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-2">
+          <pose>
+            1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-2">
+          <pose>
+            3.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-1">
+          <pose>
+            3.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_0">
+          <pose>
+            3.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door">
+        <pose>-0.3 -0.05 0 0 0 5.865023717985863</pose>
+        <collision name="collision">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="PublicMeetingRoomC">
+      <static>true</static>
+      <pose>
+        4.5
+        13.6
+        0
+        0
+        0
+        -1.5707963267948966
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            1.3800000000000001
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                3.24
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -2.13
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            3.05
+            -2.25
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                4.5
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -3.05
+            -2.25
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                4.5
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            0.0
+            -4.55
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                6.0
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/meeting_room_small.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_-1_-2">
+          <pose>
+            -1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_-1">
+          <pose>
+            -1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_0">
+          <pose>
+            -1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-2">
+          <pose>
+            0.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-2">
+          <pose>
+            1.5
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-2">
+          <pose>
+            3.0
+            -3.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_-1">
+          <pose>
+            3.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_2_0">
+          <pose>
+            3.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door">
+        <pose>-0.3 -0.05 0 0 0 5.865023717985863</pose>
+        <collision name="collision">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0.45 -0.15 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_door.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <!-- Furniture if door is open -->
+    </model>
+    <model name="PublicMeetingRoomD">
+      <static>true</static>
+      <pose>
+        8.9
+        19.5
+        0
+        0
+        0
+        3.141592653589793
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            0.63
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -2.13
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            1.55
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -3.05
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            -0.75
+            -3.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                4.5
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/office_small.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_-1_-1">
+          <pose>
+            -1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_0">
+          <pose>
+            -1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="PublicMeetingRoomE">
+      <static>true</static>
+      <pose>
+        4.3
+        19.5
+        0
+        0
+        0
+        3.141592653589793
+      </pose>
+      <link name="link">
+        <collision name="right_of_door">
+          <pose>
+            0.63
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_of_door">
+          <pose>
+            -2.13
+            0.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.74
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="top_of_door">
+          <pose>
+            -0.75
+            0.05
+            2.55
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                1.5
+                0.1
+                0.9
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right">
+          <pose>
+            1.55
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left">
+          <pose>
+            -3.05
+            -1.5
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                0.1
+                3.0
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back">
+          <pose>
+            -0.75
+            -3.05
+            1.5
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <box>
+              <size>
+                4.5
+                0.1
+                3.0
+              </size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/office_small.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- floor -->
+        <visual name="floor_-1_-1">
+          <pose>
+            -1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_-1_0">
+          <pose>
+            -1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_-1">
+          <pose>
+            0.0
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_0_0">
+          <pose>
+            0.0
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_-1">
+          <pose>
+            1.5
+            -1.5
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="floor_1_0">
+          <pose>
+            1.5
+            0.0
+            0
+            0
+            0
+            0
+          </pose>
+          <geometry>
+            <mesh>
+              <uri>file://media/meshes/carpet.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="door_frame">
+        <pose>-0.75 0.1 0 0 0 3.141592653589793</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://door/meshes/door_frame.obj</uri>
+              <scale>0.01 0.01 0.01</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <!-- Furniture if door is open -->
+      <model name="corner_1">
+        <static>true</static>
+        <pose>
+          1.5
+          -3.0
+          0
+          0
+          0
+          -1.5707963267948966
+        </pose>
+        <link name="link">
+          <collision name="collision_x">
+            <pose>
+              -0.925
+              -0.375
+              0.38
+              0 0 0
+            </pose>
+            <geometry>
+              <box>
+                <size>
+                  1.85
+                  0.75
+                  0.76
+                </size>
+              </box>
+            </geometry>
+          </collision>
+          <collision name="collision_y">
+            <pose>
+              -0.375
+              -0.925
+              0.38
+              0 0 0
+            </pose>
+            <geometry>
+              <box>
+                <size>
+                  0.75
+                  1.85
+                  0.76
+                </size>
+              </box>
+            </geometry>
+          </collision>
+          <visual name="visual">
+            <geometry>
+              <mesh>
+                <uri>model://cubicle_corner/meshes/cubicle_corner.obj</uri>
+                <scale>0.01 0.01 0.01</scale>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+    </model>
+
+    <!-- Public cubicles -->
+    <!-- Islands -->
+    <!-- Corners -->
+    <!-- Private cubicles -->
+
+    <!-- BEGIN_CEILING_ARUCO_GRID -->
+    <model name="ceiling_aruco_grid">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <visual name="ceiling_aruco_markers">
+          <pose>9.1 11.25 2.989000 3.1415926535897931 0.0 0.00</pose>
+          <geometry>
+            <box>
+              <size>23.35 21.35 0.002000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://models/aruco_marker_grid/textures/aruco_markers.png</albedo_map>
+                <emissive_map>file://models/aruco_marker_grid/textures/aruco_markers.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- END_CEILING_ARUCO_GRID -->
+    <model name="cut_border_wall_y_-4.50">
+      <static>true</static>
+      <pose>-3.0000 11.2500000 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <pose>0 0 1.500000 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0100000 22.51000 3.000000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 1.500000 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0100000 22.51000 3.000000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <diffuse>1.0 1.0 1.0 1.0</diffuse>
+            <specular>0.2 0.2 0.2 1.0</specular>
+            <emissive> 0 0 0 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>file://media/materials/textures/plain.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <include>
+      <uri>file://models/cubicle_island</uri>
+      <name>cubicle_island</name>
+      <pose>9.1306754864565924 12.892417119576542 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall</name>
+      <pose>8.1967099999999995 14.798999999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_0</name>
+      <pose>10.072964668273926 14.799001693725586 0 0 0 -3.1415900000000754</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_0_1</name>
+      <pose>8.1858135420824425 10.979948533689548 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_1</name>
+      <pose>10.06309986114502 10.989199638366699 0 0 0 -3.1415900000000754</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_2</name>
+      <pose>7.2177801132202148 11.951399803161621 0 0 0 1.5885800027314523</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_3</name>
+      <pose>7.1897826194763184 13.844989776611328 0 0 0 -1.5635199950189538</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_4</name>
+      <pose>11.044626235961914 11.95268440246582 0 0 0 1.5599500352737492</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_5</name>
+      <pose>11.046906471252441 13.835323333740234 0 0 0 -1.5662899819052083</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair</name>
+      <pose>7.7321023941040039 14.21738338470459 0 0 0 -0.77402802128752368</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_0</name>
+      <pose>7.6826400756835938 11.382100105285645 0 0 0 0.38850198421674959</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_1</name>
+      <pose>10.485300064086914 11.569999694824219 0 0 0 2.5108231923908204</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_2</name>
+      <pose>10.476499557495117 14.243499755859375 0 0 0 -2.2660853438848889</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_3</name>
+      <pose>4.183650016784668 21.5093994140625 0 0 0 1.7391534921091176</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_6</name>
+      <pose>4.7273364067077637 21.531398773193359 0 0 0 1.5905299696092603</pose>
+    </include>
+    <include>
+      <uri>file://models/office_couch</uri>
+      <name>office_couch</name>
+      <pose>-1.3608533143997192 19.105203628540039 0 0 0 -3.1210100004440169</pose>
+    </include>
+    <include>
+      <uri>file://models/tv_stand</uri>
+      <name>tv_stand</name>
+      <pose>-1.9914127588272095 21.659904479980469 0 0 0 0.65249301642617707</pose>
+    </include>
+    <include>
+      <uri>file://models/office_box</uri>
+      <name>office_box</name>
+      <pose>-2.1952900886535645 21.374200820922852 0.50842905044555664 0 0 -8.8817841970012523e-16</pose>
+    </include>
+    <include>
+      <uri>file://models/office_box</uri>
+      <name>office_box_0</name>
+      <pose>-1.6054799556732178 21.829999923706055 0.50996357202529907 0 0 0.34207599648995246</pose>
+    </include>
+    <include>
+      <uri>file://models/office_couch</uri>
+      <name>office_couch_0</name>
+      <pose>1.688623309135437 19.928218841552734 0 0 0 -1.577309965042754</pose>
+    </include>
+    <include>
+      <uri>file://models/CoffeeTable</uri>
+      <name>CoffeeTable</name>
+      <pose>1.9371356020017698 21.887649348846729 -0.0012965404467246691 8.0219638561376443e-08
+        -8.0967715398890684e-08 5.0408814327776871e-12</pose>
+    </include>
+    <include>
+      <uri>file://models/conference_table_large</uri>
+      <name>conference_table_large</name>
+      <pose>16.35017777810787 19.621512965389954 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/reception_desk</uri>
+      <name>reception_desk</name>
+      <pose>1.9008200168609619 3.6706173419952393 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_4</name>
+      <pose>1.8286199569702148 3.1102800369262695 0 0 0 -1.5936553360527961</pose>
+    </include>
+    <include>
+      <uri>file://models/aws_robomaker_retail_BookshelfA_01</uri>
+      <name>aws_robomaker_retail_BookshelfA_01</name>
+      <pose>6.2503132820129395 2.6770021915435791 0 0 0 -1.5761299325103832</pose>
+    </include>
+    <include>
+      <uri>file://models/Chair</uri>
+      <name>Chair</name>
+      <pose>15.018524312566651 18.504599259594812 -0.0011488836338257719 0.00025064721307665376
+        1.7489803516902891e-05 1.5691248080272784</pose>
+    </include>
+    <include>
+      <uri>file://models/Chair</uri>
+      <name>Chair_0</name>
+      <pose>16.438325846015342 18.568106323827859 -0.0011104522431268865 -0.00010190786755144615
+        2.9813580149743896e-05 1.5745477706008633</pose>
+    </include>
+    <include>
+      <uri>file://models/Chair</uri>
+      <name>Chair_1</name>
+      <pose>17.652126235672856 18.524006029583685 -0.001098231816214916 0.00019140711001949343
+        4.6743196331626693e-05 1.5468460534837132</pose>
+    </include>
+    <include>
+      <uri>file://models/Chair</uri>
+      <name>Chair_2</name>
+      <pose>14.828365503286777 20.672505672278056 -0.0013361072054314468 2.8092489956094866e-05
+        9.1268849599179823e-07 -1.3298195320397204</pose>
+    </include>
+    <include>
+      <uri>file://models/Chair</uri>
+      <name>Chair_3</name>
+      <pose>16.331281698980931 20.690893221975337 -0.0010336813221760582 1.1341868692527538e-06
+        2.9622440368853463e-07 -1.5371797563337775</pose>
+    </include>
+    <include>
+      <uri>file://models/Chair</uri>
+      <name>Chair_4</name>
+      <pose>17.738788610718412 20.721905862759673 -0.0011051811287627758 9.8999882041430656e-06
+        6.2971333569305926e-07 -1.4423561895554231</pose>
+    </include>
+    <include>
+      <uri>file://models/conference_table_small</uri>
+      <name>conference_table_small</name>
+      <pose>2.3518273830413818 13.430850982666016 0 0 0 1.5645499854485612</pose>
+    </include>
+    <include>
+      <uri>file://models/aws_robomaker_retail_BookshelfB_01</uri>
+      <name>aws_robomaker_retail_BookshelfB_01</name>
+      <pose>4.6426949501037598 2.1466286182403564 0 0 0 -1.5722800645782751</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_corner</uri>
+      <name>cubicle_corner</name>
+      <pose>11.847599983215332 22.443031311035156 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_5</name>
+      <pose>10.809771992532594 21.347461758923863 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_wall</uri>
+      <name>cubicle_wall_7</name>
+      <pose>10.889398574829102 20.526599884033203 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/TrashBin</uri>
+      <name>TrashBin</name>
+      <pose>10.2241093282306 21.973408190247408 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/TrashBin</uri>
+      <name>TrashBin_0</name>
+      <pose>3.2439666250228374 20.891320534365118 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_corner</uri>
+      <name>cubicle_corner_0</name>
+      <pose>2.8182597889655669 6.4448776723998531 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/cubicle_corner</uri>
+      <name>cubicle_corner_1</name>
+      <pose>2.8833417892456055 8.5606060028076172 0 0 0 -1.5844300107229405</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_6</name>
+      <pose>1.5717500448226929 9.649169921875 0 0 0 -0.91011713093935431</pose>
+    </include>
+    <include>
+      <uri>file://models/WoodenChair</uri>
+      <name>WoodenChair_7</name>
+      <pose>1.5275499820709229 5.2610898017883301 0 0 0 0.51318640817562333</pose>
+    </include>
+    <include>
+      <uri>file://models/TrashBin</uri>
+      <name>TrashBin_1</name>
+      <pose>1.1738705559682026 8.9772303040203436 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file://models/TrashBin</uri>
+      <name>TrashBin_2</name>
+      <pose>1.080752472904984 6.0670480198046679 0 0 0 0</pose>
+    </include>
+  </world>
+</sdf>
