@@ -1,183 +1,150 @@
 # IPB ROS2 Gazebo Simulation
 
-## Simulation
+This project focuses on building a ROS 2-based autonomous navigation system that uses 3D LiDAR for accurate robot localization in prebuilt maps. While most existing systems rely on 2D methods, this work extends localization into full 3D, improving navigation in complex environments.
 
-To start the simulation:
+The system is first developed in simulation (Gazebo) and later deployed on a real robot, ensuring real-time performance using C++.
 
-```bash
-ros2 launch ipb_ros2_sim all.launch.py
-```
+🎯 Key Goals
+Develop a 3D mapping system using LiDAR
+Implement 3D localization with scan-to-map registration (ICP)
+Handle global initialization without prior pose
+Build a complete navigation stack (planner + controller)
+Demonstrate autonomous point-to-point navigation
 
-
-### Optional launch arguments
-Depending on your needs, consider providing the following configuration parameters when launching the simulation:
-| Argument      | Default | Description |
-|---------------|---------|-------------|
-| `sim_config`  | `empty` | Selects the simulation scenario. Options: `indoor`, `outdoor`, `empty`, `indoor_actors`, `indoor_multi`  |
-| `rviz`        | `True`  | Enables or disables RViz.|
-
-### Robot Config
-The repository provides some default config files, that you can change regarding you needs.
-
-Modify `robot_config.yaml` file to:
-
-  - unable/disable sensors (3D lidar, 2D lidar, front camera, upward camera, and IMU.)
-  - modify sensor configuration parameters (e.g sensor noise)
-
-### Simulation Configs
-
-The simulation configuration is specified using the `sim_config` launch argument. Corresponding configuration files are located in the `config/simulation` directory.
-
-| Parameter     | Description |
-|--------------|-------------|
-| `namespace`  | ROS2 namespace used for all nodes and topics in this simulation instance. |
-| `model_type` | Robot model type (e.g., `jackal`, `husky`). |
-| `init_pose` | Initial pose of the robot in the simulation (`x`, `y`, `z`, `theta`). |
+⚙️ Core Idea
+The robot uses 3D LiDAR data + prior maps to estimate its position and navigate reliably, even in challenging environments where 2D approaches fail. 
 
 ---
 
-### Robot Teleoperation
-Run the teleoperation node imposing msg type TwistStamped and remapping standard cmd_vel topic to your robot’s namespace (e.g. `/P1_robot0/cmd_vel`):
-```console
+## Prerequisites
+
+- Ubuntu 24.04
+- ROS 2 Jazzy
+- Gazebo Harmonic
+- Terminator (recommended)
+
+---
+
+## Workspace Setup
+
+Clone the repository:
+
+```bash
+git clone git@github.com:noelinnocentlog/3d-lidar-localization.git
+cd 3d-lidar-localization
+```
+
+Build the workspace:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+colcon build --symlink-install
+```
+
+Source the workspace:
+
+```bash
+source install/setup.bash
+```
+
+> 💡 It is recommended to use Terminator since multiple terminals are required.
+
+---
+
+# Running the Navigation Stack
+
+Open a new terminal for each component.
+
+## 1. Start the Simulation
+
+```bash
+ros2 launch ipb_ros2_sim all.launch.py sim_config:=indoor
+```
+
+---
+
+## 2. Mapping
+
+A map is already provided in this repository.
+
+You only need to run mapping if you want to create a new map.
+
+```bash
+ros2 launch opensource_2d_mapping cartographer.launch.py
+```
+
+---
+
+## 3. Localization
+
+Localize the robot within the existing map.
+
+```bash
+ros2 launch opensource_2d_localization localization.launch.py
+```
+
+---
+
+## 4. Planning
+
+Start the planner.
+
+```bash
+ros2 launch opensource_2d_planning planning.launch.py
+```
+
+---
+
+## 5. Control
+
+Start the controller.
+
+```bash
+ros2 launch opensource_2d_control control.launch.py
+```
+
+---
+
+## Teleoperation
+
+Control the robot manually using the keyboard:
+
+```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard \
   --ros-args \
   -p stamped:=true \
-  -r cmd_vel:=/<namespace_from_sim_config>/cmd_vel
+  -r cmd_vel:=/P1_robot0/cmd_vel
 ```
 
-### Multi-robot simulations
-Define multiple robot entries in the simulation configuration file. 
-To launch a multi-robot simulation:
-```console
-ros2 launch ipb_ros2_sim all.launch.py sim_config:=indoor_multi max_robot_count:=2
-```
-| Argument      | Default | Description |
-|---------------|---------|-------------|
-| `max_robot_count`  | `1` | Sets the maximal number of defined robots in the simulation without needing to rebuild - enabling multi-robot scnearios. |
+---
 
-### Actors
+## Troubleshooting
 
-Support for actors requires an additional Gazebo plugin:
-https://github.com/blackcoffeerobotics/gazebo-ros-actor-plugin
+### ROS packages not found
 
-```console
-# install, build and source package
-cd ~/ros_ws/src/ros2_masterproject/src/ 
-git clone https://github.com/blackcoffeerobotics/gazebo-ros-actor-plugin.git
-cd ~/ros_ws && colcon build --symlink-install
-source install/setup.bash
-```
-In the simulation config define the following under `actors`
-
-| Parameter     | Description |
-|--------------|-------------|
-| `id` | Unique identifier of the actor. |
-| `model_type` | Actor model type (e.g., `female`, `male`). |
-| `path_node` | Launches node if defined (e.g., `actor_path_publisher`). |
-| `init_pose` | Initial pose of the actor in the simulation (`x`, `y`, `z`, `theta`). |
-
-Actors can be launched after the simulation has been launched:
-```console
-ros2 launch ipb_ros2_sim actor.launch.py sim_config:=indoor_actors max_actor_count:=1 
-```
-
-| Argument      | Default | Description |
-|---------------|---------|-------------|
-| `max_actor_count`  | `1` | Sets the maximal number of defined actors in the simulation without needing to rebuild |
-
-
-
-## ROS2-Related
-
-### Workspace structure
-```
-ros2_masterproject/
- ├── src/
- │    ├── ipb_ros2_sim/
- │    ├── gazebo_ros_actor_plugin/
- │    ├── your_packages/
- │
- ├── build/
- ├── install/
- ├── log/
- │
- ├── docker/
- ├── README.md
- ├── .gitattributes
- ├── .gitignore
-```
-
-### Build and source packages 
-```console
+```bash
 source /opt/ros/jazzy/setup.bash
-cd ~/ros_ws
-colcon build 
 source install/setup.bash
 ```
 
-### Limit Network communication
+### Rebuild workspace
 
-- To limit ROS2 communication to only the local machine and set a communication ID for ROS2:
-  ```console
-  export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-  export ROS_DOMAIN_ID=42
-  ```
-
-### Use Zenoh to speed up sensor updates
-Change the ROS middleware to [Zenoh](https://docs.ros.org/en/jazzy/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.html). 
-
-Install Zenoh for Ros-Jazzy:
-```console
-sudo apt install ros-jazzy-rmw-zenoh-cpp
-```
-Start the Zenoh node in a dedicated console:
-```console
-export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-source /opt/ros/jazzy/setup.bash
-ros2 run rmw_zenoh_cpp rmw_zenohd
-```
-Then in any other terminal run:
-```console
-export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-```
-before starting your ros nodes.
-
-## Docker 
-For this project implementation using the provided Docker cotainer is recommended.
-
-```
-cd ./docker
-# Build container
-docker compose down --remove-orphans
-docker compose build
-
-# Build (if needed) and start container
-docker compose up -d
-
-# Enter running container
-docker compose exec simulation zsh
-
-# Stop and remove container
-docker compose down
+```bash
+rm -rf build install log
+colcon build --symlink-install
 ```
 
-Please notice that this has been designed to work with NVIDIA gpus, but you can modify the `compose.yaml` file and adapt it to work only with CPU or with non-NVIDIA gpus. To disable gpu usage, comment out the NVIDIA reservation block.
+### Check ROS topics
 
-To let the Docker container show GUI windows on your screen, you need to allow it to connect to your host’s X server.
-Run this command on your host machine:
-```console
-xhost +local:root
+```bash
+ros2 topic list
 ```
 
-## GIT
+### Check TF tree
 
-Make sure Git LFS is installed and initialized:
+```bash
+ros2 run tf2_tools view_frames
+```
 
-`git lfs install` sets up Git Large File Storage (LFS) on your machine.
+---
 
-It:
-- enables Git to handle large files (e.g. `.stl`, `.png`, `.obj`) 
-- installs Git hooks so LFS works automatically
-- only needs to be run once per user/machine
-- defined in .gitattributes
