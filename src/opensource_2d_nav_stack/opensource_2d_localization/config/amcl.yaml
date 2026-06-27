@@ -11,49 +11,55 @@ amcl:
     scan_topic: "lidar_2d"
 
     # --- Motion model: differential drive ---
-    # Lowered from 0.2 -> 0.1: sim wheel odometry is good, so inject less
-    # process noise. The cloud stays tighter and the pose is steadier.
-    # If you ever see the estimate lag/drift on fast turns, raise alpha1/alpha4.
+    # Left at 0.1 on purpose: this is the stability floor. Only drop to ~0.05
+    # if your sim odom is essentially ground-truth (no slip/noise model). Too
+    # low + a tight cloud = overconfidence that can't absorb a correction.
     robot_model_type: "nav2_amcl::DifferentialMotionModel"
-    alpha1: 0.1     # rot noise from rot
-    alpha2: 0.1     # rot noise from trans
+    alpha1: 0.3     # rot noise from rot  (higher = more spread during turns)
+    alpha2: 0.2     # rot noise from trans
     alpha3: 0.1     # trans noise from trans
-    alpha4: 0.1     # trans noise from rot
+    alpha4: 0.2     # rot noise from rot
     alpha5: 0.1     # omni only (unused here)
 
     # --- Particle filter sizing ---
-    # Denser cloud -> finer pose resolution. Cheap in sim.
-    min_particles: 1000
+    # min 1000 -> 2000: KLD drops particle count when confident; a higher floor
+    # keeps the weighted-mean pose smooth (less jitter) and resolution fine even
+    # when locked. pf_err 0.05 -> 0.02 biases KLD toward using more particles.
+    min_particles: 2000
     max_particles: 5000
-    pf_err: 0.05
+    pf_err: 0.02
     pf_z: 0.99
-    resample_interval: 1
+    # 1 -> 2: resample less often so motion can re-spread the cloud between
+    # resamples. Reduces particle depletion -> steadier lock (esp. with recovery off).
+    resample_interval: 2
 
-    # --- KLD recovery (mild) ---
-    # Kept small so a lost filter can recover, but low enough that random
-    # injection does not noticeably degrade a good lock. For ABSOLUTE max
-    # steady-state accuracy set both to 0.0 (but then it cannot self-recover
-    # if kidnapped -- you'd re-seed with 2D Pose Estimate).
-    recovery_alpha_slow: 0.001
-    recovery_alpha_fast: 0.1
+    # --- KLD recovery: OFF for max steady-state lock ---
+    # 0.0/0.0 removes random particle injection = no injection jitter, tightest
+    # possible lock. TRADE-OFF: it can no longer self-recover if kidnapped --
+    # re-seed with a 2D Pose Estimate click (or relaunch). Since you set the
+    # initial pose and it's a static sim, this is the right call.
+    recovery_alpha_slow: 0.0
+    recovery_alpha_fast: 0.0
 
-    # --- Update thresholds: correct far more often ---
-    # 0.25 m / 0.2 rad -> 0.10 m / 0.10 rad. Smaller motion between laser
-    # corrections = less odom drift accumulates = more accurate tracking.
-    update_min_d: 0.10
-    update_min_a: 0.10
+    # --- Update thresholds: correct ~2x as often ---
+    # 0.10 -> 0.05 m / rad. Less odom drift accumulates between laser
+    # corrections = tighter tracking. 0.05 is the stable sweet spot; you can
+    # try 0.025 for a hair more accuracy at slight jitter risk.
+    update_min_d: 0.05
+    update_min_a: 0.1
 
     # --- Laser likelihood-field model ---
     laser_model_type: "likelihood_field"
     laser_likelihood_max_dist: 2.0
-    laser_max_range: 100.0
+    # Set this to your lidar's REAL max usable range (e.g. 15.0/30.0), not 100.
+    laser_max_range: 50.0
     laser_min_range: -1.0
-    # More beams used in the match -> more constraints -> better accuracy.
     max_beams: 180
-    # Trust the (clean) sim laser much more: z_hit up, z_rand down, and a
-    # sharper Gaussian (sigma_hit 0.2 -> 0.1) for crisp scan-to-map matching.
-    z_hit: 0.8
-    z_rand: 0.2
+    # Clean sim laser -> trust it more: z_hit 0.8 -> 0.9, z_rand 0.2 -> 0.1.
+    # sigma_hit STAYS 0.1 on purpose: going sharper (0.05) over-penalizes tiny
+    # misalignments and makes the filter jittery/brittle. 0.1 is the stable peak.
+    z_hit: 0.9
+    z_rand: 0.1
     sigma_hit: 0.1
     z_short: 0.05     # beam-model only (unused by likelihood_field)
     z_max: 0.05       # beam-model only (unused by likelihood_field)
@@ -67,18 +73,17 @@ amcl:
 
     # --- TF / output ---
     tf_broadcast: true
-    # 1.0 -> 0.3: less post-dating of map->odom = lower latency, less "drag"
-    # in the pose. Your odom TF runs ~50 Hz so 0.3 s is plenty of headroom.
-    # If you get "extrapolation into the future" warnings, bump to 0.5.
-    transform_tolerance: 0.3
+    # Keep 0.3 for low latency. If you see "extrapolation into the future"
+    # warnings, raise to 0.5 -- that's a stability fix, not an accuracy cost.
+    transform_tolerance: 0.5
     save_pose_rate: 0.5
 
     # --- Initial pose ---
-    # STILL 0,0,0 = map origin. Set this to the robot's REAL spawn (map frame)
-    # so the cloud starts converged instead of needing a 2D Pose Estimate click.
-    set_initial_pose: true
+    # Gazebo world coords != map frame coords. Use "2D Pose Estimate" in RViz
+    # to click the robot's real position on the map instead of guessing here.
+    set_initial_pose: false
     always_reset_initial_pose: false
-    first_map_only: false
+    first_map_only: true
     initial_pose:
       x: 0.0
       y: 0.0

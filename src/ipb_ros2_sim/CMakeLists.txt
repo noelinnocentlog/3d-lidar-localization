@@ -36,6 +36,7 @@ install(DIRECTORY launch description config world
 # Install Python nodes
 install(PROGRAMS
   nodes/actor_path_publisher.py
+  nodes/odom_tf_publisher.py
   DESTINATION lib/${PROJECT_NAME}/
 )
 

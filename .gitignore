@@ -3,6 +3,31 @@ build/
 install/
 log/
 
+# Generated maps output (root-level only — maps inside src/ packages are tracked)
+/maps/
+
+# Media / demo recordings
+/Media/
+
+# ROS bag recordings
+*.bag
+*.bag.active
+*.db3
+
+# Cartographer serialized map state
+*.pbstream
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor artifacts
+*.swp
+*.swo
+*.orig
+.DS_Store
+
 
 
 

@@ -248,7 +248,21 @@ def launch_setup_robots(context, pkg_share, ros_gz_sim_share, *args, **kwargs):
             condition=IfCondition(LaunchConfiguration("rviz")),
         )
 
-        nodes.extend([rsp_node, spawn_node, rviz_node])
+        odom_tf_node = Node(
+            package='ipb_ros2_sim',
+            executable='odom_tf_publisher.py',
+            name='odom_tf_publisher',
+            namespace=ns,
+            output='screen',
+            parameters=[{
+                'use_sim_time': LaunchConfiguration('use_sim_time'),
+                'odom_topic': 'odom_gt',
+                'parent_frame': f'{ns}/odom',
+                'child_frame': f'{ns}/base_link',
+            }],
+        )
+
+        nodes.extend([rsp_node, spawn_node, rviz_node, odom_tf_node])
 
     # Create GZ-ROS2 Bridge - DO not spawn multiple clock bridges!
     simulation_bridge_node = RosGzBridge(

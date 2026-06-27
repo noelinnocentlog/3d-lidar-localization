@@ -55,7 +55,7 @@ def generate_launch_description():
 
     declare_map_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(pkg_share, 'maps', 'office_map.yaml'),
+        default_value=os.path.join(pkg_share, 'maps', 'map_002.yaml'),
         description='Full path to the map yaml file to load',
     )
 

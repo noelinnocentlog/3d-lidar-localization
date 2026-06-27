@@ -2,25 +2,27 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>opensource_2d_mapping</name>
-  <version>0.0.0</version>
-  <description>Mapping package for the opensource 2D navigation stack</description>
+  <version>0.0.1</version>
+  <description>Cartographer-based 2D mapping for the opensource 2D navigation stack</description>
   <maintainer email="noelinnocent369@gmail.com">noel</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Apache-2.0</license>
 
-  <depend>rclpy</depend>
-  <depend>launch</depend>
-  <depend>launch_ros</depend>
-  <depend>nav_msgs</depend>
-  <depend>sensor_msgs</depend>
-  <depend>tf2_ros</depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
-
+  <exec_depend>cartographer_ros</exec_depend>
+  <exec_depend>nav2_map_server</exec_depend>
   <exec_depend>slam_toolbox</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

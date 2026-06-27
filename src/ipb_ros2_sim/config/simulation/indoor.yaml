@@ -12,9 +12,9 @@ rviz: "sim.rviz"
 
 robots:
   - id: 0
-    model_type: jackal
+    model_type: husky
     init_pose:
       x: "1.0"
       y: "1.0"
       z: "0.25"
-      theta: "-0.9"
+      theta: "0.0"

@@ -115,8 +115,9 @@
     </plugin>
 
     <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
-      <odom_frame>${ns}odom</odom_frame>
+      <odom_frame>${ns}odom_gt</odom_frame>
       <robot_base_frame>${ns}base_link</robot_base_frame>
+      <tf_topic>${ns}tf_gt</tf_topic>
       <odom_publish_frequency>${robot_config.odom_gt.update_rate}</odom_publish_frequency>
       <odom_topic>${ns}odom_gt</odom_topic>
     </plugin>
