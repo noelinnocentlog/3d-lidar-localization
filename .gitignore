@@ -28,6 +28,7 @@ __pycache__/
 *.orig
 .DS_Store
 
-
+# .vscode settings
+.vscode/
 
 
