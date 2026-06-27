@@ -10,7 +10,7 @@ options = {
   published_frame = "P1_robot0/base_link",
   odom_frame = "P1_robot0/odom",
 
-  provide_odom_frame = true,                  -- Cartographer publishes map -> odom
+  provide_odom_frame = false,                  -- Cartographer publishes map -> odom
   publish_frame_projected_to_2d = true,
 
   use_odometry = true,                         -- wheel_odom as prior
