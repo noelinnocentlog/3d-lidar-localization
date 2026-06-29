@@ -1,0 +1,64 @@
+hybrid_astar_planner:
+  ros__parameters:
+    use_sim_time: true
+
+    # ── Topic / frame names (override to use with a different robot namespace) ──
+    map_topic:             "/P1_robot0/map"
+    goal_topic:            "/P1_robot0/goal_pose"
+    plan_topic:            "/P1_robot0/hybrid_astar/plan"
+    plan_directions_topic: "/P1_robot0/hybrid_astar/plan_directions"
+    dijkstra_map_topic:    "/P1_robot0/hybrid_astar/dijkstra_map"
+    base_frame:            "P1_robot0/base_link"
+    map_frame:             "map"
+
+    # ── Cost weights ────────────────────────────────────────────────────────────
+    # reverse_penalty: extra cost per metre of reverse travel.
+    reverse_penalty: 3.0
+
+    # direction_change_penalty: one-time penalty when switching forward↔reverse.
+    #   Most important param for eliminating yo-yo behaviour. Raise if oscillating.
+    direction_change_penalty: 10.0
+
+    # steer_change_penalty: cost per rad/s of steering rate change.
+    steer_change_penalty: 0.5
+
+    # heuristic_weight: 1.0 = optimal (slow), >1.0 = suboptimal but faster.
+    #   1.05 means the returned path is within 5% of optimal length.
+    heuristic_weight: 1.05
+
+    # ── Search limits ────────────────────────────────────────────────────────────
+    max_iterations: 1000000
+    planning_timeout: 3.0       # seconds
+
+    # ── Analytic expansion (Reeds-Shepp shortcut to goal) ────────────────────────
+    analytic_expand_n: 5        # attempt shortcut every N pops from open list
+    analytic_max_len: 4.0       # skip RS if farther than this from goal (metres)
+
+    # ── Path smoother ────────────────────────────────────────────────────────────
+    # shortcut_max_dist: max straight-line skip per shortcut step (metres).
+    #   1.0–2.0 m keeps enough waypoints for smooth curvature tracking.
+    shortcut_max_dist: 1.5
+
+    smoother_max_iter: 150
+    smoother_lr: 0.05           # gradient step — lower if smoother overshoots into walls
+
+    smoother_w_smooth: 0.4      # smoothness (curvature penalty)
+    smoother_w_data: 0.2        # data fidelity (stay near original path)
+    smoother_w_obs: 0.4         # obstacle repulsion
+
+    # smoother_min_clear: target obstacle clearance in metres.
+    #   Should be ≥ robot_width/2. For 1.2 m corridors with Husky: 0.55–0.65 m.
+    smoother_min_clear: 0.60
+
+    # ── Goal tolerance ────────────────────────────────────────────────────────────
+    goal_xy_tol: 0.15           # metres
+    goal_theta_tol: 0.20        # radians (~11°)
+
+    # ── Husky robot footprint ─────────────────────────────────────────────────────
+    robot_length: 1.05          # metres (Husky 0.99 m + 6 cm margin)
+    robot_width: 0.75           # metres (Husky 0.67 m + 8 cm margin)
+    bounding_radius: 0.64       # metres (half-diagonal of footprint)
+
+    # min_turn_radius: must match tightest primitive (v/omega = 0.3/1.5 = 0.2 m).
+    #   Keeping this at 0.2 m makes the RS heuristic (H2) admissible.
+    min_turn_radius: 0.20
