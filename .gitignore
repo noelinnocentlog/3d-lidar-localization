@@ -31,4 +31,6 @@ __pycache__/
 # .vscode settings
 .vscode/
 
-
+# Opensource Robotics (OSR) generated project files
+src/elite_teleop/
+src/gazebo-ros-actor-plugin/
