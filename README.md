@@ -31,12 +31,18 @@ Clone the repository:
 
 ```bash
 git clone git@github.com:noelinnocentlog/3d-lidar-localization.git
-cd 3d-lidar-localization
 ```
+Support for actors requires an additional Gazebo plugin:
+https://github.com/blackcoffeerobotics/gazebo-ros-actor-plugin
 
+```bash
+cd ~/3d-lidar-localization/src/ 
+git clone https://github.com/blackcoffeerobotics/gazebo-ros-actor-plugin.git
+```
 Build the workspace:
 
 ```bash
+cd ..
 source /opt/ros/jazzy/setup.bash
 colcon build --symlink-install
 ```
